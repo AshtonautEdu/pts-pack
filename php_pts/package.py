@@ -7,7 +7,7 @@ from spack_repo.builtin.build_systems.autotools import AutotoolsPackage
 from spack.package import *
 
 
-class PHPPTS(AutotoolsPackage):
+class PhpPts(AutotoolsPackage):
     """
     PHP is a popular general-purpose scripting language that is especially
     suited to web development. Fast, flexible and pragmatic, PHP powers
