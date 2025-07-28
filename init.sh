@@ -1,7 +1,35 @@
-#!/bin/sh
+#!/bin/bash
+#SBATCH --job-name=pts-pack-init
+#SBATCH --time=01:00:00
+#SBATCH --mem=4G
+#SBATCH --cpus-per-task=2
+#SBATCH --out=init.out
+#
 # PTS-Pack initialisation script
 #
 # A script designed to be ran immediately after download of the pack
+
+
+# Slurm check
+if [[ "$1" == "--slurm" ]]; then
+	echo "Running initialisation as Slurm job"
+	job_id=$(sbatch "$0" | awk '{print $4}')
+	echo "Submitted job $job_id"
+	exit 0
+fi
+
+
+# Dir setup
+if [ -n "$SLURM_JOB_ID" ]; then
+	SCRIPT_PATH=$(dirname $(scontrol show job $SLURM_JOB_ID | awk -F= '/Command=/{print $2}'))
+else
+	SCRIPT_PATH=$(dirname $(realpath $0))
+fi
+echo $SCRIPT_PATH
+cd $SCRIPT_PATH
+
+### MAIN ###
+
 
 # Spack setup
 wget -q --show-progress https://github.com/spack/spack/releases/download/v1.0.0/spack-1.0.0.tar.gz
