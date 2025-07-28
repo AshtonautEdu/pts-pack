@@ -64,6 +64,7 @@ class PhpPts(AutotoolsPackage):
     depends_on("bzip2")
     depends_on("curl")
     depends_on("readline")
+    depends_on("libzip")
 
     patch("sbang-7.patch", when="@7")
     patch("sbang-8.patch", when="@8")
