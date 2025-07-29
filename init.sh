@@ -25,7 +25,6 @@ if [ -n "$SLURM_JOB_ID" ]; then
 else
 	SCRIPT_PATH=$(dirname $(realpath $0))
 fi
-echo $SCRIPT_PATH
 cd $SCRIPT_PATH
 
 ### MAIN ###
