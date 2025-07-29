@@ -17,4 +17,3 @@ fi
 source ${SCRIPT_PATH}/spack/share/spack/setup-env.sh
 spack load php-pts
 alias pts=${SCRIPT_PATH}/phoronix-test-suite/phoronix-test-suite
-export TMPDIR=./tmp

@@ -46,4 +46,3 @@ spack install php-pts
 wget -q --show-progress https://github.com/phoronix-test-suite/phoronix-test-suite/releases/download/v10.8.4/phoronix-test-suite-10.8.4.tar.gz
 tar -xf phoronix-test-suite-10.8.4.tar.gz
 rm phoronix-test-suite-10.8.4.tar.gz
-mkdir ./tmp
