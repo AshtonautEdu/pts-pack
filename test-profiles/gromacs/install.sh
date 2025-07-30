@@ -14,8 +14,8 @@ if [ -n "$SLURM_JOB_ID" ]; then
 fi
 source ${SPACK_PATH}/share/spack/setup-env.sh
 spack load gromacs
-mpirun --allow-run-as-root -np \$NUM_CPU_PHYSICAL_CORES gmx_mpi grompp -f pme.mdp  -o bench.tpr
-mpirun --allow-run-as-root -np \$NUM_CPU_PHYSICAL_CORES gmx_mpi mdrun -resethway -npme 0 -notunepme -noconfout -nsteps 1000 -v -s  bench.tpr
+mpirun --allow-run-as-root -np \$NUM_CPU_PHYSICAL_CORES -- gmx_mpi grompp -f pme.mdp  -o bench.tpr
+mpirun --allow-run-as-root -np \$NUM_CPU_PHYSICAL_CORES -- gmx_mpi mdrun -resethway -npme 0 -notunepme -noconfout -nsteps 1000 -v -s  bench.tpr
 " >  run-gromacs
 chmod +x run-gromacs
 echo "#!/bin/sh
