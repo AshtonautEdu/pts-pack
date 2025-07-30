@@ -32,10 +32,12 @@ cd $SCRIPT_PATH
 
 
 # Spack setup
-wget -q --show-progress https://github.com/spack/spack/releases/download/v1.0.0/spack-1.0.0.tar.gz
-tar -xf spack-1.0.0.tar.gz
-rm spack-1.0.0.tar.gz
-mv spack-1.0.0 spack
+if [ ! -e spack ]; then
+	wget -q --show-progress https://github.com/spack/spack/releases/download/v1.0.0/spack-1.0.0.tar.gz
+	tar -xf spack-1.0.0.tar.gz
+	rm spack-1.0.0.tar.gz
+	mv spack-1.0.0 spack
+fi
 source spack/share/spack/setup-env.sh
 spack list > /dev/null # Generate package dir
 
