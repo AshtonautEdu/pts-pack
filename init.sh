@@ -45,7 +45,9 @@ cp -r ./php_pts ~/.spack/package_repos/fncqgg4/repos/spack_repo/builtin/packages
 spack install php-pts
 
 # PTS setup
-wget -q --show-progress https://github.com/phoronix-test-suite/phoronix-test-suite/releases/download/v10.8.4/phoronix-test-suite-10.8.4.tar.gz
-tar -xf phoronix-test-suite-10.8.4.tar.gz
-rm phoronix-test-suite-10.8.4.tar.gz
+if [ ! -e phoronix-test-suite ]; then
+	wget -q --show-progress https://github.com/phoronix-test-suite/phoronix-test-suite/releases/download/v10.8.4/phoronix-test-suite-10.8.4.tar.gz
+	tar -xf phoronix-test-suite-10.8.4.tar.gz
+	rm phoronix-test-suite-10.8.4.tar.gz
+fi
 ./phoronix-test-suite/phoronix-test-suite > /dev/null # Generate ~/.phoronix-test-suite
